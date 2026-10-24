@@ -56,3 +56,12 @@ decisions:
       - agentes de revisão (planner, code-reviewer) já na Fase 1
       - hooks de bloqueio (brain-guard) já na Fase 1
     why: só o que já é usado há meses entra sem passar pelo portão "usado?"; o resto está em docs/BACKLOG.md com gatilho
+
+  - id: D006
+    date: 2026-10-24
+    topic: plugins de stack (AWS, Databricks) e onde ficam
+    chosen: plugins oficiais de stack instalados em escopo project no repo da empresa; no cérebro só entram notas de referência datadas em docs/references/
+    rejected:
+      - instalar aws-core/databricks em escopo user junto com o cérebro
+      - escrever skills próprias de AWS/Databricks já agora
+    why: a stack é da empresa e muda a cada emprego; os plugins oficiais são mantidos pela AWS e pela Databricks; skill própria só depois de doer duas vezes (RULER)

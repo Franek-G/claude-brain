@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "brain: check",
+      "type": "shell",
+      "command": "bash scripts/check.sh",
+      "group": { "kind": "test", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "brain: doctor",
+      "type": "shell",
+      "command": "bash scripts/doctor.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "brain: validate plugins",
+      "type": "shell",
+      "command": "claude plugin validate --strict . && for p in plugins/*; do claude plugin validate --strict \"$p\"; done",
+      "problemMatcher": []
+    },
+    {
+      "label": "brain: testar plugin sem instalar",
+      "type": "shell",
+      "command": "claude --plugin-dir ${input:plugin}",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "plugin",
+      "type": "pickString",
+      "description": "Qual plugin?",
+      "options": ["plugins/brain-core", "plugins/brain-memory"],
+      "default": "plugins/brain-memory"
+    }
+  ]
+}

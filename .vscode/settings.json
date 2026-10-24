@@ -1,0 +1,29 @@
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.DS_Store": true
+  },
+  "files.associations": {
+    "*.local.json.example": "json",
+    "SKILL.md": "markdown"
+  },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.rulers": [88]
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "shellcheck.enable": true,
+  "shellcheck.run": "onSave",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
+  },
+  "search.exclude": {
+    "**/CC-Session-Logs": true
+  }
+}

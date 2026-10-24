@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "editorconfig.editorconfig",
+    "timonwong.shellcheck",
+    "redhat.vscode-yaml",
+    "ms-python.python"
+  ]
+}

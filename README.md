@@ -56,10 +56,17 @@ plugins/brain-core/               método
 plugins/brain-memory/             memória (skills, hooks, scripts)
 home/                             camada ~/.claude
 scripts/                          install.sh, doctor.sh, check.sh
-docs/                             PRIVACY.md, decisions/ (ADRs)
+docs/                             PRIVACY.md, VSCODE.md, references/, decisions/ (ADRs)
 decisions.yaml                    decisões do próprio cérebro
 RULER.md                          portão de entrada
 ```
+
+## No VS Code
+
+Extensão `anthropic.claude-code`; o cérebro funciona nela sem configuração extra porque
+extensão e CLI lêem os mesmos arquivos. Atalhos, fluxo e as tasks deste repositório
+estão em [docs/VSCODE.md](docs/VSCODE.md). Boas práticas por stack em
+[docs/references/](docs/references/).
 
 ## Desenvolver
 
