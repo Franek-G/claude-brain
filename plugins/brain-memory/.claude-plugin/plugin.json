@@ -1,0 +1,12 @@
+{
+  "name": "brain-memory",
+  "version": "0.1.0",
+  "description": "Memória entre sessões do Claude Code: /resume carrega contexto, /compress salva a sessão como log estruturado, /preserve promove aprendizado permanente para CLAUDE.md ou decisions.yaml. Hook Stop sugere salvar sessões longas.",
+  "author": {
+    "name": "Franek G"
+  },
+  "homepage": "https://github.com/Franek-G/claude-brain",
+  "repository": "https://github.com/Franek-G/claude-brain",
+  "license": "MIT",
+  "keywords": ["memory", "session-log", "decisions", "context"]
+}

@@ -1,0 +1,35 @@
+{
+  "_comment": "Base mesclada em ~/.claude/settings.json por scripts/install.sh. Só adiciona: nunca remove o que já existe.",
+  "permissions": {
+    "allow": [
+      "Read(/**)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(find *)",
+      "Bash(sed -n *)",
+      "Bash(diff *)",
+      "Bash(file *)",
+      "Bash(echo *)",
+      "Bash(printf *)",
+      "Bash(pwd)",
+      "Bash(which *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(python3 -m py_compile *)",
+      "Bash(bash -n *)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(rm -rf *)",
+      "Bash(npx *)"
+    ]
+  }
+}

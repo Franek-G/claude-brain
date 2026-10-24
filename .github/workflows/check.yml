@@ -1,0 +1,38 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Claude Code (para plugin validate)
+        run: npm install -g @anthropic-ai/claude-code
+        continue-on-error: true
+
+      - name: Checks do repositório
+        run: bash scripts/check.sh
+
+      - name: Validação estrita dos manifestos
+        run: |
+          if command -v claude >/dev/null; then
+            claude plugin validate --strict . && for p in plugins/*; do claude plugin validate --strict "$p"; done
+          else
+            echo "claude indisponível; validate estrito não rodou"
+          fi
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

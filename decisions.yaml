@@ -1,0 +1,58 @@
+# Decision Manifest do claude-brain
+#
+# Decisões subjetivas sobre o próprio cérebro (não sobre projetos de empresa).
+# Schema por entrada:
+#   id: D### (sequencial)
+#   date: YYYY-MM-DD
+#   topic: string curta (≤ 60 chars)
+#   chosen: o que foi decidido
+#   rejected: alternativas consideradas
+#   why: razão
+#   superseded_by: D### (opcional)
+#
+# /brain-memory:preserve adiciona aqui quando o aprendizado for uma decisão.
+
+decisions:
+  - id: D001
+    date: 2026-10-24
+    topic: nome e visibilidade do repositório
+    chosen: Franek-G/claude-brain, público
+    rejected:
+      - dotclaude (genérico demais, colide com outros)
+      - repositório privado
+    why: público instala em qualquer máquina sem credencial e força a disciplina do PRIVACY.md; o conteúdo é método, não dado
+
+  - id: D002
+    date: 2026-10-24
+    topic: licença
+    chosen: MIT
+    rejected:
+      - Apache-2.0
+    why: mesma licença dos repositórios de onde mais se aproveitou padrão (ecc, superpowers); sem cláusula de patente para um repo de configuração
+
+  - id: D003
+    date: 2026-10-24
+    topic: idioma
+    chosen: nomes de plugin/skill/agente/hook em inglês; corpo das skills e docs em pt-BR
+    rejected:
+      - tudo em inglês
+      - tudo em pt-BR
+    why: nomes em inglês passam no portão "portátil" do RULER; o corpo em pt-BR é a língua em que eu penso e já escrevi os comandos originais
+
+  - id: D004
+    date: 2026-10-24
+    topic: forma de distribuição
+    chosen: marketplace de plugins do Claude Code + script para a camada ~/.claude
+    rejected:
+      - clonar o repo inteiro em ~/.claude (padrão dotfiles)
+      - instalador npm próprio
+    why: mecanismo oficial, fixável por tag, sem rodar pacote de terceiro em máquina de empresa; plugin não distribui rules/settings, daí o script
+
+  - id: D005
+    date: 2026-10-24
+    topic: o que entra na Fase 1
+    chosen: brain-core (gdp, writing-skills) e brain-memory (resume, compress, preserve, hook Stop)
+    rejected:
+      - agentes de revisão (planner, code-reviewer) já na Fase 1
+      - hooks de bloqueio (brain-guard) já na Fase 1
+    why: só o que já é usado há meses entra sem passar pelo portão "usado?"; o resto está em docs/BACKLOG.md com gatilho

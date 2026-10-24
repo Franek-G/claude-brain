@@ -1,0 +1,7 @@
+{
+  "_comment": "Caminhos desta máquina. Copiado para ~/.claude/brain.local.json pelo install.sh. Nunca versionado.",
+  "vault": "",
+  "vault_logs_dir": "Areas/Work/Session-Logs",
+  "project_logs_dir": "CC-Session-Logs",
+  "lang": "pt-BR"
+}

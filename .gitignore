@@ -1,0 +1,13 @@
+# estado local, nunca versionado
+*.local.json
+*.local.md
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+
+# nunca: logs de sessão, transcripts, memória gerada
+CC-Session-Logs/
+*.jsonl
+.claude/settings.local.json
+.claude/worktrees/

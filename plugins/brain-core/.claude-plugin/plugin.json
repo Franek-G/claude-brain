@@ -1,0 +1,12 @@
+{
+  "name": "brain-core",
+  "version": "0.1.0",
+  "description": "Método de trabalho com o Claude Code: Guided Decision Protocol e guia de escrita de skills.",
+  "author": {
+    "name": "Franek G"
+  },
+  "homepage": "https://github.com/Franek-G/claude-brain",
+  "repository": "https://github.com/Franek-G/claude-brain",
+  "license": "MIT",
+  "keywords": ["method", "decision-protocol", "skills"]
+}

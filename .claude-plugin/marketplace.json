@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-brain",
+  "description": "Configuração pessoal do Claude Code de Franek: método de decisão, memória entre sessões, hooks e regras. Portátil entre máquinas e empresas.",
+  "owner": {
+    "name": "Franek G"
+  },
+  "plugins": [
+    {
+      "name": "brain-core",
+      "source": "./plugins/brain-core",
+      "description": "Método: Guided Decision Protocol (quem decide o quê) e guia de escrita de skills.",
+      "category": "productivity"
+    },
+    {
+      "name": "brain-memory",
+      "source": "./plugins/brain-memory",
+      "description": "Memória entre sessões: /resume carrega contexto, /compress salva a sessão, /preserve promove aprendizado permanente. Hook Stop sugere salvar sessões longas.",
+      "category": "productivity"
+    }
+  ]
+}
