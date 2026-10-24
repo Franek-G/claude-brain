@@ -74,3 +74,13 @@ decisions:
       - portar o guardrail de SQL e o executor dbx.py como plugin já agora
       - copiar skills e agentes do vault com os nomes e caminhos de lá
     why: RULER. As regras já doeram duas vezes (incidentes de 17/09, 30/09 e 05/10); os plugins só doeram numa empresa. Nada literal sai de repositório privado da empresa
+
+  - id: D008
+    date: 2026-10-24
+    topic: critério de entrada de extensões de VS Code no repo
+    chosen: entra em .vscode/extensions.json o que serve ao conteúdo do repo (Markdown, shell, YAML, JSON, Python, git) ou à stack de dados que o cérebro acompanha; cada ID conferido na API do Marketplace com lastUpdated recente
+    rejected:
+      - copiar as listas de "melhores extensões" de blog
+      - só o núcleo, deixando a stack de dados em escopo de projeto da empresa
+      - Copilot, Prettier, ESLint, Live Server, Thunder Client e extensões sem atualização há mais de dois anos
+    why: popularidade não é critério (vscode-docker tem 53M de instalações e é pacote vazio desde 2025-05); a stack de dados é a que acompanha a carreira, então vale recomendar aqui; Copilot concorre com o Claude Code no mesmo painel
