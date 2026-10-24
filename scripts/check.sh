@@ -85,7 +85,7 @@ fi
 
 # 8
 if command -v gitleaks >/dev/null 2>&1; then
-  gitleaks detect --no-banner --redact -s . >/dev/null 2>&1 && pass "gitleaks" || fail "gitleaks encontrou segredo"
+  gitleaks detect --no-banner --redact -c .gitleaks.toml -s . >/dev/null 2>&1 && pass "gitleaks" || fail "gitleaks encontrou segredo"
 else
   echo "skip  gitleaks não instalado (o CI roda)"
 fi

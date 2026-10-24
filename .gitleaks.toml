@@ -1,0 +1,40 @@
+# Regras do claude-brain: segredos padrão do gitleaks + dado pessoal brasileiro.
+# Reescrito a partir do padrão usado num vault de time de dados.
+title = "claude-brain"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "cpf"
+description = "CPF formatado"
+regex = '''\b\d{3}\.\d{3}\.\d{3}-\d{2}\b'''
+tags = ["pii"]
+
+[[rules]]
+id = "email-pessoal"
+description = "E-mail de provedor pessoal"
+regex = '''\b[A-Za-z0-9._%+-]+@(gmail|hotmail|outlook|yahoo|icloud|live|bol|uol)\.com(\.br)?\b'''
+tags = ["pii"]
+
+[[rules]]
+id = "connection-string"
+description = "String de conexão com senha"
+regex = '''(?i)(password|pwd|senha)\s*[=:]\s*['"]?[^\s'";<>{}$]{4,}'''
+tags = ["secret"]
+
+[[rules]]
+id = "databricks-token"
+description = "Token pessoal Databricks"
+regex = '''\bdapi[0-9a-f]{32}(-\d)?\b'''
+tags = ["secret"]
+
+[allowlist]
+description = "Placeholders de documentação"
+regexTarget = "match"
+regexes = [
+  '''<senha>''',
+  '''\$\{[A-Z_]+(:-[^}]*)?\}''',
+  '''xxx\.xxx\.xxx-xx''',
+  '''(?i)(password|pwd|senha)\s*[=:]\s*(''|""|<[^>]+>)''',
+]

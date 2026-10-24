@@ -182,6 +182,37 @@ UC do modelo>`, `CLAUDE_CODE_USE_GATEWAY=1` e header
 `x-databricks-use-coding-agent-mode: true`. `ug usage` mostra consumo. Recursos
 exclusivos do claude.ai somem (ver `docs/VSCODE.md`).
 
+## 10. Lições de campo (uso real, 2026)
+
+Aprendidas num workspace Databricks em AWS com catálogos federados (espelhos de Redshift e
+Glue). Nenhuma depende da empresa.
+
+- **Warehouse sempre explícito.** O warehouse que a CLI escolhe sozinho (um "Serverless
+  Starter") falha com `BAD_REQUEST` sem mensagem em qualquer consulta a catálogo federado.
+  Passe `--warehouse <id>` em todo comando e deixe isso no `CLAUDE.md` do projeto.
+- **Cada comando Bash é um shell novo.** Exportar `DATABRICKS_CONFIG_PROFILE` não persiste;
+  `--profile` vai em toda chamada.
+- **Instalação das skills dentro de uma sessão do Claude Code falha** com `cli-not-on-path`
+  quando o `aitools install` tenta chamar o plugin manager. Saída:
+  `databricks aitools install --agents claude-code --scope project --skills-only`, ou rodar
+  o comando num terminal fora da sessão.
+- **PAT desligado na organização** aparece como "Tokens are disabled for your organization".
+  Não é permissão faltando; é política. OAuth U2M é o único caminho.
+- **`UPPER(TRIM(coluna))` em catálogo federado não tem pushdown**: a tabela inteira vem
+  antes de agrupar e estoura timeout. Compare o valor bruto primeiro ou materialize um
+  recorte em `sandbox` antes de normalizar.
+- **Nome de tabela no lake raramente bate com o do sistema de origem.** Nunca chute:
+  `SELECT table_catalog, table_schema, table_name FROM system.information_schema.tables WHERE table_name ILIKE '%<nome>%'`.
+- **CLI antes do conector MCP de desktop.** O conector do Claude Desktop para Databricks teve
+  relatos de instabilidade; a CLI oficial autentica uma vez e dá o mesmo controle de revisão
+  de qualquer comando. O MCP via Unity Gateway (seção 3) é a evolução oficial disso.
+- **Um executor canônico de SQL** (`python scripts/dbx.py "<SQL>"`) com uma forma só de
+  chamar, liberado uma vez nas permissões, evita que cada variação de flag vire um pedido de
+  aprovação em modo sem supervisão. O executor recusa `SELECT *` e escrita fora do sandbox.
+- **O `CLAUDE.md` do projeto documenta só o específico da empresa** (catálogos, workspace,
+  warehouse, regra de escrita) e aponta para as skills oficiais para toda sintaxe de CLI.
+  Evita duplicar e contradizer o que a Databricks mantém.
+
 ## Não verificado
 
 - Não há post oficial do blog da Databricks sobre Claude Code; só docs e artigos de

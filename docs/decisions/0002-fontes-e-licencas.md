@@ -20,6 +20,7 @@ incompatível.
 | [anthropics/skills](https://github.com/anthropics/skills) | Apache-2.0 | formato de `SKILL.md` | formato oficial |
 | [xerj-org/xerj](https://github.com/xerj-org/xerj) | Apache-2.0 | candidato a `brain-search` opcional (Fase 3) | nada ainda |
 | [gupsammy/Claudest](https://github.com/gupsammy/Claudest) | sem licença | ideia da memória FTS5 (Fase 3) | só a ideia |
+| vault de time de dados (`gabrielfranek/vault-dados`, privado) | próprio, conteúdo da empresa | regras de dados e de agentes, molde de skill de consulta e de sub-agente, `.gitleaks.toml` (regex genéricas de PII), lições de campo Databricks, modelo de vault e de plataforma de conhecimento | só padrão, reescrito; nenhum nome, dado, host ou identificador da empresa |
 | vault Obsidian pessoal | próprio | `/resume`, `/compress`, `/preserve`, `suggest_compress.sh`, `preflight_tfidf.py`, `build_claude_md.sh`, GDP | migrados e generalizados |
 
 ## Decisão

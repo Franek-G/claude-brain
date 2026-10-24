@@ -29,7 +29,7 @@ Verifique com `bash ~/.claude/plugins/marketplaces/claude-brain/scripts/doctor.s
 |---|---|---|
 | `brain-core` | Guided Decision Protocol (quem decide o quê) e o guia de escrita de skills | `/brain-core:gdp`, `/brain-core:writing-skills` |
 | `brain-memory` | Memória entre sessões: carregar contexto, salvar sessão, promover aprendizado. Hook `Stop` que sugere salvar sessões longas | `/brain-memory:resume`, `/brain-memory:compress`, `/brain-memory:preserve` |
-| `home/` | `CLAUDE.md` pessoal, `rules/` (git, testes, segurança, qualidade de fix, atribuição), `settings.base.json` | instalado por `scripts/install.sh` |
+| `home/` | `CLAUDE.md` pessoal, `rules/` (git, testes, segurança, dados, agentes e tokens, qualidade de fix, atribuição), `settings.base.json` | instalado por `scripts/install.sh` |
 
 Fases 2 e 3 (hooks de bloqueio, molde para repo de empresa, busca local) estão
 descritas em [ARQUITETURA.md](ARQUITETURA.md) e só entram quando o

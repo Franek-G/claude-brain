@@ -15,6 +15,29 @@ para dentro. Revisar quando o gatilho disparar, não antes.
 - **`scripts/install.ps1`**: Windows. *Gatilho:* precisar instalar numa máquina
   Windows (a máquina da loja ChuckTCG é candidata).
 
+## Colhido do vault de time (2026-10-24)
+
+Padrões que já funcionam em produção num vault de time de dados; viram plugin quando a
+segunda empresa precisar.
+
+- **`brain-guard`: guardrail de SQL com dado pessoal** (`PreToolUse`, exit 2): bloqueia
+  `SELECT *` e coluna de PII em consulta sem agregação, com lista de schemas livres e termos de
+  PII em configuração do projeto. Já existe uma versão com testes para CLI do Databricks e
+  outra para MCP do Redshift. *Gatilho:* a próxima empresa com dado pessoal.
+- **Hook de conexões com estado em arquivo**: um monitor agendado grava o estado; o hook de
+  `SessionStart` lê e avisa com o comando de login; o de `UserPromptSubmit` fica mudo quando
+  está tudo ok. Zero token. *Gatilho:* duas conexões que expiram no dia.
+- **Métrica de uso** lida dos logs locais do Claude Code (cache, erros de ferramenta, custo por
+  requisição) e score 0 a 100. *Gatilho:* querer medir antes de otimizar.
+- **Executor canônico de SQL** no estilo `dbx.py`: uma forma só de chamar, recusa `SELECT *`
+  e escrita fora do sandbox, liberado uma vez nas permissões. *Gatilho:* primeiro projeto com
+  CLI de dados em modo sem supervisão.
+- **`/brain-memory:note <o que fiz>`**: registro curto do dia que acha a pendência certa por
+  script e atualiza o status, sem ler notas inteiras. *Gatilho:* usar o `compress` para coisa
+  pequena três vezes.
+- **Templates para `brain-company`**: hub de projeto (status, tabelas, decisões com data e
+  origem), nota de ajuste (o que, query, validação antes e depois só com agregados).
+
 ## Fase 3 — sob demanda
 
 - **`/brain-memory:decide`**: captura a decisão no ato com o schema `D###`, perguntando

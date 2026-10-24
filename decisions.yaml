@@ -65,3 +65,12 @@ decisions:
       - instalar aws-core/databricks em escopo user junto com o cérebro
       - escrever skills próprias de AWS/Databricks já agora
     why: a stack é da empresa e muda a cada emprego; os plugins oficiais são mantidos pela AWS e pela Databricks; skill própria só depois de doer duas vezes (RULER)
+
+  - id: D007
+    date: 2026-10-24
+    topic: o que colher do vault de time da empresa atual
+    chosen: só padrões reescritos (regras de dados e agentes, moldes de skill, gitleaks, lições Databricks, modelos de vault e de plataforma de conhecimento); plugins ficam no backlog até a segunda dor
+    rejected:
+      - portar o guardrail de SQL e o executor dbx.py como plugin já agora
+      - copiar skills e agentes do vault com os nomes e caminhos de lá
+    why: RULER. As regras já doeram duas vezes (incidentes de 17/09, 30/09 e 05/10); os plugins só doeram numa empresa. Nada literal sai de repositório privado da empresa

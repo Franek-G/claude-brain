@@ -26,5 +26,5 @@ avise em uma frase antes. A regra completa está na skill `brain-core:gdp`.
 
 ## Regras
 
-As regras em `~/.claude/rules/brain/` carregam sozinhas: git, testes, segurança,
+As regras em `~/.claude/rules/brain/` carregam sozinhas: git, testes, segurança, dados, agentes e tokens,
 qualidade de fix e atribuição.

@@ -64,6 +64,41 @@ Corpo em pt-BR. Passos numerados, imperativos, curtos.
    compare o resultado com o esperado. Ajuste o texto onde ele errou, não adicione
    mais texto onde ele acertou.
 
+## Dois moldes que funcionam
+
+**Skill de consulta a uma base de conhecimento** (vault, wiki, docs do repo). Três passos
+fixos:
+
+1. *Leia sempre*: 1 a 3 notas de base, nomeadas, que valem para qualquer tarefa daquele tipo
+   (arquitetura, boas práticas, pendências).
+2. *Busque o específico*: extraia tabelas, sistemas, termos da tarefa; `grep` na base por
+   eles; leia até 4 arquivos a mais, os mais relevantes.
+3. *Responda citando*: aplique o que encontrou e liste no início as notas consultadas.
+
+Serve para `/sql`, `/etl`, `/diagnose`, `/projeto`, qualquer domínio. O que muda entre uma e
+outra é só a lista do passo 1 e as pastas do passo 2.
+
+**Sub-agente enxuto** para trabalho em paralelo (um por item independente):
+
+```markdown
+---
+name: <papel>-<alvo>            # ex.: reviewer-table, processor-meeting
+description: Faz UMA <coisa>. Use um por item, em paralelo, quando houver 3 ou mais.
+tools: Read, Write, Glob, Grep, Bash(python scripts/<um-script>.py *)
+model: sonnet                    # menor que o principal para tarefa mecânica
+maxTurns: 20
+omitClaudeMd: true               # não carrega o CLAUDE.md inteiro
+skills:
+  - <convencoes-compactas>       # skill curta com as regras de escrita
+---
+Você processa **um** item; o caminho vem na mensagem. Não varra o repositório.
+<passos numerados, o que não fazer, onde pode escrever>
+Retorno (uma linha JSON, nada mais): {"item":"...","resultado":"...","alerta":""}
+```
+
+A skill compacta de convenções substitui o `CLAUDE.md` no contexto do agente e é o que mantém
+o custo baixo. Regras de escala e de retorno estão em `~/.claude/rules/brain/agents-and-tokens.md`.
+
 ## Migrar um comando antigo (`.claude/commands/x.md`)
 
 1. Crie `skills/x/SKILL.md`, copie o corpo, adicione `name` e expanda a `description`.
