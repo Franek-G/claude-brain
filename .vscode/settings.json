@@ -13,7 +13,9 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     "editor.wordWrap": "on",
-    "editor.rulers": [88]
+    "editor.rulers": [
+      88
+    ]
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -24,6 +26,36 @@
     "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.yml"
   },
   "search.exclude": {
-    "**/CC-Session-Logs": true
-  }
+    "**/CC-Session-Logs": true,
+    "**/.claude/worktrees": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "markdownlint.config": {
+    "MD013": false,
+    "MD033": false,
+    "MD041": false
+  },
+  "cSpell.language": "en,pt-BR",
+  "cSpell.ignorePaths": [
+    "CC-Session-Logs/**",
+    "**/*.local.json",
+    ".git/**"
+  ],
+  "cSpell.words": [
+    "Franek",
+    "RULER",
+    "claude",
+    "worktree",
+    "worktrees",
+    "shellcheck",
+    "gitleaks",
+    "Databricks",
+    "Redshift"
+  ]
 }

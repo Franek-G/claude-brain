@@ -65,11 +65,48 @@ O que **este repositório** traz em `.vscode/`:
 
 | Arquivo | Para quê |
 |---|---|
-| `extensions.json` | recomenda Claude Code, EditorConfig, ShellCheck, YAML, Python |
-| `settings.json` | LF, newline final, ShellCheck ao salvar, schema do GitHub Actions, esconde `CC-Session-Logs` da busca |
+| `extensions.json` | 24 extensões recomendadas; lista e critério abaixo |
+| `settings.json` | LF, newline final, ShellCheck ao salvar, Ruff e shell-format como formatadores, markdownlint sem MD013/MD033/MD041, Code Spell Checker em en + pt-BR, schema do GitHub Actions, esconde `CC-Session-Logs` e worktrees da busca |
 | `tasks.json` | `Cmd+Shift+B`-style: **brain: check** (padrão de teste), **brain: doctor**, **brain: validate plugins**, **brain: testar plugin sem instalar** |
 
 Rode uma task com `Cmd+Shift+P` → "Tasks: Run Task".
+
+### Extensões recomendadas
+
+IDs e contagens conferidos na API do Marketplace em 2026-10-24. Critério: entra o
+que serve ao conteúdo deste repositório (Markdown, shell, YAML, JSON, Python, git)
+ou à stack de dados que o cérebro acompanha. Ao abrir a pasta, o VS Code oferece
+instalar o que faltar; na linha de comando, `code --install-extension <id>`.
+
+| Grupo | Extensão | ID | Para quê |
+|---|---|---|---|
+| Claude | Claude Code | `anthropic.claude-code` | o painel; veja acima |
+| Editor | EditorConfig | `editorconfig.editorconfig` | respeita `.editorconfig` |
+| Shell | ShellCheck | `timonwong.shellcheck` | lint dos `scripts/*.sh` e hooks |
+| Shell | Bash IDE | `mads-hartmann.bash-ide-vscode` | símbolos e ir à definição em shell |
+| Shell | shell-format | `foxundermoon.shell-format` | formata shell com shfmt embutido |
+| Dados de config | YAML | `redhat.vscode-yaml` | `decisions.yaml`, workflows; schemas |
+| Dados de config | Even Better TOML | `tamasfe.even-better-toml` | `pyproject.toml` de projetos |
+| Python | Python | `ms-python.python` | base: debug, envs, IntelliSense |
+| Python | Ruff | `charliermarsh.ruff` | lint e format; substitui Black, isort, flake8 |
+| Python | Jupyter | `ms-toolsai.jupyter` | notebooks; Databricks depende dela |
+| Markdown | markdownlint | `DavidAnson.vscode-markdownlint` | lint de SKILL.md e docs |
+| Markdown | Markdown All in One | `yzhang.markdown-all-in-one` | TOC, tabelas, atalhos |
+| Markdown | Markdown Preview Mermaid | `bierner.markdown-mermaid` | diagramas em ARQUITETURA.md e ADRs |
+| Qualidade | Error Lens | `usernamehw.errorlens` | diagnósticos inline, de qualquer linter |
+| Qualidade | Code Spell Checker | `streetsidesoftware.code-spell-checker` | typos; dicionário pt-BR em `...-portuguese-brazilian` |
+| Git | GitLens | `eamodio.gitlens` | blame e histórico inline |
+| Git | GitHub Pull Requests | `GitHub.vscode-pull-request-github` | revisar PR no editor |
+| Git | GitHub Actions | `GitHub.vscode-github-actions` | CI do `check.sh` |
+| Stack | Databricks | `databricks.databricks` | rodar código local no cluster; veja [references/databricks.md](references/databricks.md) |
+| Stack | SQLTools + driver Databricks | `mtxr.sqltools`, `databricks.sqltools-databricks-driver` | consultas SQL com resultado no editor |
+| Stack | Remote - SSH | `ms-vscode-remote.remote-ssh` | editar em máquina remota |
+| Stack | Container Tools | `ms-azuretools.vscode-containers` | Docker e dev containers; o antigo `vscode-docker` virou pacote vazio que aponta para esta |
+
+Ficaram de fora, de propósito: Prettier e ESLint (JS/CSS, sem uso aqui), Live
+Server e Thunder Client (web), Copilot (concorre com o Claude Code no mesmo
+painel), e Path Intellisense, Todo Tree, Better Comments e DotENV (sem atualização
+há 2 a 8 anos).
 
 ## Limitações conhecidas
 
