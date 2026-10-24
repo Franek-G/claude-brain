@@ -27,6 +27,9 @@ Um marketplace de plugins do Claude Code mais uma camada `home/` para
 7. **Commits sem trailer de agente.** A autoria é a identidade git do humano.
 8. **Antes de dizer "pronto", rode `bash scripts/check.sh`.** Pronto é
    re-executado, não resumido.
+9. **Extensão de VS Code só entra conferida na API do Marketplace** (ID,
+   instalações, `lastUpdated`), nunca por lista de blog. O comando está em
+   [docs/VSCODE.md](docs/VSCODE.md); o critério de entrada é a decisão D008.
 
 ## Layout
 

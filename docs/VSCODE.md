@@ -108,6 +108,23 @@ Server e Thunder Client (web), Copilot (concorre com o Claude Code no mesmo
 painel), e Path Intellisense, Todo Tree, Better Comments e DotENV (sem atualização
 há 2 a 8 anos).
 
+#### Como conferir uma extensão
+
+A página do Marketplace é renderizada em JavaScript e não responde a `curl`. A API
+pública responde, com nome, instalações e data da última versão:
+
+```bash
+curl -s -X POST "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json;api-version=7.1-preview.1" \
+  -d '{"filters":[{"criteria":[{"filterType":7,"value":"charliermarsh.ruff"}]}],"flags":914}' \
+  | jq '.results[0].extensions[0] | {displayName, lastUpdated, installs: (.statistics[] | select(.statisticName=="install") | .value)}'
+```
+
+`filterType: 7` filtra pelo ID `publisher.name`. Olhe `lastUpdated`, não só
+instalações: extensão popular pode estar abandonada ou ter virado pacote vazio.
+Critério de entrada: decisão D008 em `decisions.yaml`.
+
 ## Limitações conhecidas
 
 - **Sessões cloud (claude.ai/code) não carregam plugins locais** nem
