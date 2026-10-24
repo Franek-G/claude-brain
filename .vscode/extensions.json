@@ -3,7 +3,26 @@
     "anthropic.claude-code",
     "editorconfig.editorconfig",
     "timonwong.shellcheck",
+    "mads-hartmann.bash-ide-vscode",
+    "foxundermoon.shell-format",
     "redhat.vscode-yaml",
-    "ms-python.python"
+    "tamasfe.even-better-toml",
+    "ms-python.python",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "DavidAnson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github",
+    "GitHub.vscode-github-actions",
+    "databricks.databricks",
+    "mtxr.sqltools",
+    "databricks.sqltools-databricks-driver",
+    "ms-vscode-remote.remote-ssh",
+    "ms-azuretools.vscode-containers"
   ]
 }
